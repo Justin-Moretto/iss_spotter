@@ -36,8 +36,8 @@ const fetchCoordsByIP = function(ip, callback) {
     //console.log(JSON.parse(body));
     const lat = JSON.parse(body).lat;
     const lon = JSON.parse(body).lon;
-
-    callback(null, { lat, lon });
+    const url = `http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${lon}`;
+    return request(url);
   });
 };
 
